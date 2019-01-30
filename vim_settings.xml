@@ -1,0 +1,32 @@
+<application>
+  <component name="VimSettings">
+    <state version="4" enabled="false" />
+    <globalmarks />
+    <filemarks>
+      <file name="/Dummy.txt" timestamp="1548820375288">
+        <mark key="[" line="0" column="0" />
+      </file>
+      <file name="D:/Programming/JAVA/240-210/Ragnarok/Novice.java" timestamp="1548820731251">
+        <mark key="[" line="0" column="0" />
+        <mark key="]" line="3" column="24" />
+        <mark key="^" line="3" column="24" />
+        <mark key="." line="3" column="24" />
+      </file>
+    </filemarks>
+    <jumps />
+    <registers />
+    <search>
+      <last-dir>0</last-dir>
+      <show-last>false</show-last>
+    </search>
+    <history />
+    <shortcut-conflicts>
+      <shortcut-conflict owner="vim">
+        <text>ctrl pressed C</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed V</text>
+      </shortcut-conflict>
+    </shortcut-conflicts>
+  </component>
+</application>
