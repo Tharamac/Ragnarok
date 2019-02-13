@@ -1,18 +1,43 @@
 package game.charactor;
 
+
+import game.info.Inventory;
+import game.info.Item;
+
+/*     Homework#1 30/01/2019
+*      UPDATE:
+*      My Novice class includes methods that can...
+*      - Retrieve kick damage
+*      - Cast spell
+*      - Use healing potion
+*      - Kill an enemy to get exprience points
+*      - Display HP
+*      - Display stamina
+*      - Display EXP
+*
+*       Tharathorn Wangthammang
+*       6010110458
+*       30/01/2019
+*
+*/
+
 public class Novice {
     private int hp; //current hitpoints
     private int stamina; //current stamina
     private int exp; //current hitpoints
     private int max_hp;
     private int max_stamina;
+    private int dollar;
+    private Inventory inventory;
 
-    public Novice(int cur_hp, int cur_stamina){
+    public Novice(int cur_hp, int cur_stamina , int money){
         max_hp = 100;
         max_stamina = 100;
         hp = cur_hp;
         stamina = cur_stamina;
+        dollar = money;
         exp = 0;
+        inventory = new Inventory(6);
     }
 
     public void kick_damage(){
@@ -43,23 +68,23 @@ public class Novice {
         stamina = stamina - 20;
     }
 
-    public static void main(String args[]){
-        Novice sexy = new Novice(100,100);
-        System.out.println("Current HP: " + sexy.get_hp());
-        System.out.println("Current STAMINA: " + sexy.get_stamina());
-        System.out.println("Current EXP: " + sexy.get_exp());
-        System.out.println("Zombie kicks you! Lose 10 HP");
-        sexy.kick_damage();
-        System.out.println("Current HP: " + sexy.get_hp());
-        System.out.println("You cast spell on a zombie. This lose your stamina by 20 points");
-        sexy.cast_spell();
-        System.out.println("Current STAMINA: " + sexy.get_stamina());
-        System.out.println("Zombie defeated! You got 10 EXP");
-        sexy.enemy_defeated();
-        System.out.println("Current EXP: " + sexy.get_exp());
-        System.out.println("You use 1x Health Potion.");
-        sexy.health_potion();
-        System.out.println("Current HP: " + sexy.get_hp());
+    public int get_dollar(){
+        return dollar;
+    }
 
+    public void earn_dollar(int cash){
+        dollar = dollar + cash;
+    }
+
+    public void lose_dollar(int cash){
+        dollar = dollar - cash;
+    }
+
+    public void store_in_bag(Item newitem){
+        inventory.put_item(newitem);
+    }
+
+    public void open_inventory(){
+        inventory.get_item_list();
     }
 }
