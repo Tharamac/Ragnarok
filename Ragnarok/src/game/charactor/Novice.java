@@ -29,15 +29,26 @@ public class Novice {
     private int max_stamina;
     private int dollar;
     private Inventory inventory;
+    private String[] skill_list;
+    private int[] skill_atk;
+    private int[] skill_stamina;
 
-    public Novice(int cur_hp, int cur_stamina , int money){
-        max_hp = 100;
-        max_stamina = 100;
-        hp = cur_hp;
-        stamina = cur_stamina;
+    public Novice(int maxhp, int maxsta,int money){
+        max_hp = maxhp;
+        max_stamina = maxsta;
+        hp = maxhp;
+        stamina = maxsta;
         dollar = money;
         exp = 0;
         inventory = new Inventory(6);
+        skill_list = new String[]{"Normal Hit","Wood Block"};
+        skill_atk = new int[]{10,0};
+        skill_stamina = new int[]{0,5};
+    }
+    public void show_skill_list(Novice player){
+        for(String i : player.skill_list){
+            System.out.println(i);
+        }
     }
 
     public void kick_damage(){

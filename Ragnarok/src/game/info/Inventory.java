@@ -9,7 +9,7 @@ public class Inventory {
 
     public Inventory(int max_item){
         maxitem = max_item;
-        bag = new ArrayList<>();
+        bag = new ArrayList<Item>();
 
     }
 
