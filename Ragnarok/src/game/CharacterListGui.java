@@ -24,6 +24,8 @@ public class CharacterListGui{
     private int type; // 0 for practice 1 for two player
     private String[] charactorlist = {"Blade","Nexus","Tyrant"};
     public CharacterListGui(int mode){
+        lstPlayer1Select.setSelectedIndex(0);
+        lstPlayer2Select.setSelectedIndex(0);
         type = mode;
         if(type == 0){
             System.out.println(type);
@@ -50,8 +52,9 @@ public class CharacterListGui{
                     if(p1 == null){
                         JOptionPane.showMessageDialog(null, "Choose Player 1 Character", "Warning", JOptionPane.WARNING_MESSAGE);
                     }else{
-                        System.out.println(p1);
+
                         try {
+                            System.out.println(p1);
                             new PracticeGui((Novice)generate("game.charactor.klass." + p1)).load((Novice)generate("game.charactor.klass." + p1));
                         } catch (Exception e1) {
                             e1.printStackTrace();

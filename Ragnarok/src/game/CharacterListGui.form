@@ -58,6 +58,7 @@
                 <item value="Nexus"/>
                 <item value="Tyrant"/>
               </model>
+              <selectionMode value="0"/>
             </properties>
           </component>
         </children>
@@ -77,6 +78,7 @@
                 <item value="Nexus"/>
                 <item value="Tyrant"/>
               </model>
+              <selectionMode value="0"/>
             </properties>
           </component>
         </children>

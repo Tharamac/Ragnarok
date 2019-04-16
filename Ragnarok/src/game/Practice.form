@@ -139,6 +139,7 @@
                 <item value="Prawish"/>
                 <item value="Aprilat"/>
               </model>
+              <selectionMode value="0"/>
             </properties>
           </component>
           <component id="c558e" class="javax.swing.JButton" binding="fightButton" default-binding="true">
@@ -249,14 +250,14 @@
         <properties/>
         <border type="none" title="Battle"/>
         <children>
-          <component id="317d4" class="javax.swing.JList" binding="skilllist" custom-create="true">
+          <component id="317d4" class="javax.swing.JList" binding="skilllist">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="50"/>
               </grid>
             </constraints>
             <properties>
-              <enabled value="true"/>
+              <enabled value="false"/>
               <selectionMode value="0"/>
             </properties>
           </component>

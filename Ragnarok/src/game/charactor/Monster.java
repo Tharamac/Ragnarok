@@ -15,7 +15,7 @@ public class Monster {
         name = nme;
         atk = attack_point;
         def = defense_point;
-        position = new int[]{(int)(Math.random() * 100 - 100),(int)(Math.random() * 100 - 100)};
+        position = new int[]{(int)(Math.random() * 100 - 50),(int)(Math.random() * 100 - 50)};
     }
     public String getName(){
         return name;

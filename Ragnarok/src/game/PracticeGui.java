@@ -33,7 +33,7 @@ public class PracticeGui{
     private JTextPane textPane1;
     private JTextPane Skilllist;
     private JLabel lblsklst;
-    private ArrayList<Monster> monslist = new ArrayList<Monster>();
+     private ArrayList<Monster> monslist = new ArrayList<Monster>();
 
     public PracticeGui(Novice player){
         lblHP_val.setText(Integer.toString(player.get_hp()));
@@ -41,11 +41,9 @@ public class PracticeGui{
         lblstamina_val.setText(Integer.toString(player.get_stamina()));
         lblGenDef.setText(Integer.toString(player.get_def()));
         lblStamrate.setText(Integer.toString(player.getStamina_rate()));
-        try {
-            skilllist.setListData(player.get_skill_list(player));
-        } catch(Exception e) {
-            //TODO something
-        }
+        skilllist.setListData(player.get_skill_list(player));
+        list1.setSelectedIndex(0);
+
         Monster thanaton = new Monster("Thanaton",270,140,20);
         Monster sudarit = new Monster("Sudarit",650,110,60);
         Monster mingkhan = new Monster("Mingkhan",450, 100,50);
@@ -58,6 +56,14 @@ public class PracticeGui{
         monslist.add(pruyut);
         monslist.add(prawit);
         monslist.add(aprilat);
+        lblMonsname.setText(monslist.get(0).getName());
+        lblMonsHp.setText(Integer.toString(monslist.get(0).getHp()));
+        lblMonsAtk.setText(Integer.toString(monslist.get(0).getAtk()));
+        lblMonsDef.setText(Integer.toString(monslist.get(0).getDef()));
+        lblMonspos.setText(monslist.get(0).getPosition());
+
+
+
         list1.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
@@ -77,6 +83,7 @@ public class PracticeGui{
     }
 
     public void load(Novice player){
+        System.out.println(player.get_hp());
         JFrame frame = new JFrame("Practice");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setContentPane(new PracticeGui(player).Practice);
@@ -85,7 +92,5 @@ public class PracticeGui{
         frame.setVisible(true);
     }
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-    }
+
 }
