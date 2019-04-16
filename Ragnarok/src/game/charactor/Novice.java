@@ -4,6 +4,8 @@ package game.charactor;
 import game.info.Inventory;
 import game.info.Item;
 
+import java.util.ArrayList;
+
 /*     Homework#1 30/01/2019
 *      UPDATE:
 *      My Novice class includes methods that can...
@@ -30,13 +32,13 @@ public class Novice {
     private int stamina_rate;
     private int skill_num;
     private int def;
+    private boolean blocked = false;
+    private boolean dead = false;
     private String name;
     private Inventory inventory;
-    private String[] skill_list;
-    private int[] skill_atk;
-    private int[] skill_stamina;
+    private Skill[] skill_list;
 
-    public Novice(int maxhp, int maxsta,int stam_rate,int skill_no, String Name, int defense ,String[] skillst , int[] atk , int[] stam_cost){
+    public Novice(int maxhp, int maxsta,int stam_rate,int skill_no, String Name, int defense, Skill[] skills){
         max_hp = maxhp;
         max_stamina = maxsta;
         hp = maxhp;
@@ -44,17 +46,25 @@ public class Novice {
         stamina = maxsta;
         stamina_rate = stam_rate;
         skill_num = skill_no;
-        skill_list = skillst;
-        skill_atk = atk;
-        skill_stamina = stam_cost;
+        skill_list = skills;
         def = defense;
     }
     public String getName(){
         return name;
     }
 
-    public String[] get_skill_list(Novice player){
-        return player.skill_list;
+    public String[] get_skill_list(){
+        String[] list = new String[skill_list.length];
+        if(skill_list != null) {
+            for (int i = 0 ; i < skill_list.length; i++){
+                list[i] = skill_list[i].getName();
+            }
+        }
+        return list;
+    }
+
+    public Skill[] getSkills() {
+        return skill_list;
     }
 
     public int get_def(){
@@ -70,36 +80,56 @@ public class Novice {
         }
     }
 
-    public void take_damage(int damage){
-        hp = hp - damage;
+    public void setBlocked(boolean block){
+        blocked = block;
     }
 
-    public void health_potion(){
-        hp = hp + 10;
+    public boolean isBlocked() {
+        return blocked;
     }
+
+    public void take_damage(int damage){
+        hp = hp - damage;
+        if(hp <= 0) dead = true;
+    }
+
+    public void setStamina(int stam){
+        stamina = stam;
+    }
+
+    public int stamina_refill(){
+        if((max_stamina - stamina) > stamina_rate){
+            stamina += stamina_rate;
+        }else if((max_stamina - stamina) <= stamina_rate){
+            stamina = max_stamina;
+        }
+        return get_stamina();
+    }
+
+    public boolean isDead(){
+        if(dead == true){
+            return true;
+        }else if(hp <= 0){
+            return true;
+        }else
+            return false;
+    }
+
+//    public void cast_block_skill(){
+//
+//    }
 
     public int get_hp(){
         return hp;
     }
 
-    public int get_exp(){
-        return exp;
-    }
 
     public int get_stamina(){
         return stamina;
     }
 
-    public void cast_spell(){
-        stamina = stamina - 20;
-    }
 
 
-    public void store_in_bag(Item newitem){
-        inventory.put_item(newitem);
-    }
 
-    public void open_inventory(){
-        inventory.get_item_list();
-    }
+
 }

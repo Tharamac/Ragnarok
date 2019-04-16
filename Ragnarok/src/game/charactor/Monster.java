@@ -36,7 +36,7 @@ public class Monster {
 
     public void take_damage(int atk){
         hp = hp - atk;
-        if(hp <= 0){
+        if(hp <= 0) {
             dead = true;
         }
     }
