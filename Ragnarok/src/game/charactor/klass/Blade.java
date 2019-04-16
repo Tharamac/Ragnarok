@@ -7,13 +7,11 @@ public class Blade extends Novice{
     private int[] skill_atk;
     private int[] skill_stamina;
 
-
     public Blade(){
-        super(250, 100,100);
-        skill_list = new String[]{"Piercing","Cracker","Sword Block","Bluff"};
-        skill_atk = new int[]{15,7,0,0};
-        skill_stamina = new int[]{0,0,10,25};
+        super(1000, 250,15 , 4, "Blade", 200, new String[]{"Piercing", "Cracker", "Sword Block", "Bluff"}, new int[]{150,70,0,0},new int[]{0,0,20,50});
     }
+
+
 
 
 }

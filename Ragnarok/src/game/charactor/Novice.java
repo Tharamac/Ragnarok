@@ -27,40 +27,55 @@ public class Novice {
     private int exp; //current hitpoints
     private int max_hp;
     private int max_stamina;
-    private int dollar;
+    private int stamina_rate;
+    private int skill_num;
+    private int def;
+    private String name;
     private Inventory inventory;
     private String[] skill_list;
     private int[] skill_atk;
     private int[] skill_stamina;
 
-    public Novice(int maxhp, int maxsta,int money){
+    public Novice(int maxhp, int maxsta,int stam_rate,int skill_no, String Name, int defense ,String[] skillst , int[] atk , int[] stam_cost){
         max_hp = maxhp;
         max_stamina = maxsta;
         hp = maxhp;
+        name = Name;
         stamina = maxsta;
-        dollar = money;
-        exp = 0;
-        inventory = new Inventory(6);
-        skill_list = new String[]{"Normal Hit","Wood Block"};
-        skill_atk = new int[]{10,0};
-        skill_stamina = new int[]{0,5};
+        stamina_rate = stam_rate;
+        skill_num = skill_no;
+        skill_list = skillst;
+        skill_atk = atk;
+        skill_stamina = stam_cost;
+        def = defense;
     }
-    public void show_skill_list(Novice player){
-        for(String i : player.skill_list){
-            System.out.println(i);
+    public String getName(){
+        return name;
+    }
+
+    public String[] get_skill_list(Novice player){
+        return player.skill_list;
+    }
+
+    public int get_def(){
+        return def;
+    }
+
+    public int getStamina_rate(){
+        return stamina_rate;
+    }
+    public void use_skill_on_monster(Novice player,int skill_num, Monster target){
+        if(skill_list != null){
+
         }
     }
 
-    public void kick_damage(){
-        hp = hp - 10;
+    public void take_damage(int damage){
+        hp = hp - damage;
     }
 
     public void health_potion(){
         hp = hp + 10;
-    }
-
-    public void enemy_defeated(){
-        exp = exp + 10;
     }
 
     public int get_hp(){
@@ -79,17 +94,6 @@ public class Novice {
         stamina = stamina - 20;
     }
 
-    public int get_dollar(){
-        return dollar;
-    }
-
-    public void earn_dollar(int cash){
-        dollar = dollar + cash;
-    }
-
-    public void lose_dollar(int cash){
-        dollar = dollar - cash;
-    }
 
     public void store_in_bag(Item newitem){
         inventory.put_item(newitem);
