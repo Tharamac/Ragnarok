@@ -28,7 +28,7 @@ public class PracticeGui{
     private JLabel lblMonsAtk;
     private JLabel lblMonsDef;
     private JLabel lblMonspos;
-    private JList skilllist;
+    private JList<String> skilllist;
     private JButton button1;
     private JTextPane textPane1;
     private JTextPane Skilllist;
@@ -41,8 +41,11 @@ public class PracticeGui{
         lblstamina_val.setText(Integer.toString(player.get_stamina()));
         lblGenDef.setText(Integer.toString(player.get_def()));
         lblStamrate.setText(Integer.toString(player.getStamina_rate()));
-        if(player.get_skill_list(player) != null)
+        try {
             skilllist.setListData(player.get_skill_list(player));
+        } catch(Exception e) {
+            //TODO something
+        }
         Monster thanaton = new Monster("Thanaton",270,140,20);
         Monster sudarit = new Monster("Sudarit",650,110,60);
         Monster mingkhan = new Monster("Mingkhan",450, 100,50);

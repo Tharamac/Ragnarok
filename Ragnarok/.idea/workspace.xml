@@ -1,25 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="044beff2-c6d3-4b5e-88e1-10c4d8ecaf23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/CharacterListGui.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/CharacterListGui.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/FightGui.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/FightGui.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/Gui.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/Practice.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/PracticeGui.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/RouteMain.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/charactor/Kharacter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/charactor/klass/Tyrant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="044beff2-c6d3-4b5e-88e1-10c4d8ecaf23" name="Default Changelist" comment="setlistdata clear but there's a x above PracticeGui.java">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/RouteFight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/RouteFight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/charactor/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/charactor/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/charactor/Novice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/charactor/Novice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/charactor/klass/Blade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/charactor/klass/Blade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/charactor/klass/Nexus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/charactor/klass/Nexus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/PracticeGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/PracticeGui.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,11 +30,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/game/PracticeGui.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="142">
+              <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#673#682#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -92,8 +76,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game/CharacterListGui.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="69" column="17" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
+            <state relative-caret-position="736">
+              <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,10 +88,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game/charactor/Novice.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="64" column="28" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
+            <state relative-caret-position="63">
+              <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1427#1428#0" expanded="true" />
+                <element signature="e#1467#1468#0" expanded="true" />
                 <element signature="e#1555#1556#0" expanded="true" />
                 <element signature="e#1590#1591#0" expanded="true" />
               </folding>
@@ -213,50 +199,6 @@
               <item name="Ragnarok" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="charactor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ragnarok" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ragnarok" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="charactor" type="462c0819:PsiDirectoryNode" />
-              <item name="klass" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ragnarok" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ragnarok" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="info" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ragnarok" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ragnarok" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="info" type="462c0819:PsiDirectoryNode" />
-              <item name="item" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ragnarok" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ragnarok" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="CharacterListGui" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="Ragnarok" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ragnarok" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="FightGui" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="Ragnarok" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ragnarok" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
               <item name="PracticeGui" type="e9f4de52:FormNode" />
             </path>
           </expand>
@@ -268,7 +210,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555212687431" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555397373736" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -386,7 +328,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552916172212</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="1. add Character Select&#10;2. add Monster/Player Status&#10;3. try to add list in existing list but NullPointerException on strange line">
+      <created>1555396243834</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1555396243834</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -412,15 +361,15 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.23512748" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.23512748" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3295129" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3286119" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.68130314" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50067115" side_tool="true" weight="0.23512748" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3243626" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -430,35 +379,6 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17449665" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Learn" order="6" />
-      <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.38101983" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3295129" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3243626" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3286119" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -506,7 +426,9 @@
     <MESSAGE value="Dear Aj.Boat&#10;&#10;๊I made Blade Class and Nexus Class inherit to Novice Superclass (as a character of my fighting game)&#10;and make classes for Item Superclass &#10;I will add an detail later.&#10;&#10;Sincerely,&#10;Tharathorn" />
     <MESSAGE value="Dear Aj.Boat&#10;          I made Blade Class and Nexus Class inherit to Novice Superclass (as a character of my fighting game) and make classes for Item Superclass &#10;          I will add an detail later.&#10;          &#10;Sincerely,&#10;Tharathorn" />
     <MESSAGE value="reboot commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="reboot commit" />
+    <MESSAGE value="1. add Character Select&#10;2. add Monster/Player Status&#10;3. try to add list in existing list but NullPointerException on strange line" />
+    <MESSAGE value="setlistdata clear but there's a x above PracticeGui.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="setlistdata clear but there's a x above PracticeGui.java" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/game/charactor/friend/java/Novice.java" />
@@ -608,32 +530,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/charactor/Novice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="64" column="28" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1555#1556#0" expanded="true" />
-            <element signature="e#1590#1591#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/charactor/klass/Nexus.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/CharacterListGui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="69" column="17" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -663,13 +563,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/PracticeGui.java">
+    <entry file="file://$PROJECT_DIR$/src/game/charactor/Novice.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="63">
+          <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#673#682#0" expanded="true" />
+            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="e#1467#1468#0" expanded="true" />
+            <element signature="e#1555#1556#0" expanded="true" />
+            <element signature="e#1590#1591#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/CharacterListGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/PracticeGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
