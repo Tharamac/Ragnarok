@@ -6,6 +6,8 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class PracticeGui{
@@ -29,7 +31,7 @@ public class PracticeGui{
     private JLabel lblMonsDef;
     private JLabel lblMonspos;
     private JList<String> skilllist;
-    private JButton button1;
+    private JButton attackButton;
     private JTextPane textPane1;
     private JTextPane Skilllist;
     private JLabel lblsklst;
@@ -78,6 +80,16 @@ public class PracticeGui{
                     }
 
                 }
+            }
+        });
+        fightButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String challenger = player.getName();
+                String opponent = (String) list1.getSelectedValue();
+                JLabel label = new JLabel(challenger.toUpperCase() + " vs. " + opponent.toUpperCase());
+                label.setFont(new Font("Century Gothic", Font.PLAIN, 75));
+                JOptionPane.showMessageDialog(null, label,"Battle!",JOptionPane.PLAIN_MESSAGE);
             }
         });
     }

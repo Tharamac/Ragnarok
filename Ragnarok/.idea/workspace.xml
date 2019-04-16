@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="044beff2-c6d3-4b5e-88e1-10c4d8ecaf23" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/CharacterListGui.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/CharacterListGui.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/CharacterListGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/CharacterListGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/Practice.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Practice.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/PracticeGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/PracticeGui.java" afterDir="false" />
     </list>
@@ -33,8 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game/PracticeGui.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="44" column="6" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="38" />
+            <state relative-caret-position="324">
+              <caret line="90" column="49" selection-start-line="90" selection-start-column="49" selection-end-line="90" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1017#1026#0" expanded="true" />
@@ -46,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game/charactor/Monster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="29" column="63" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
+            <state relative-caret-position="-154">
+              <caret line="17" column="91" selection-start-line="17" selection-start-column="91" selection-end-line="17" selection-end-column="91" />
               <folding>
                 <element signature="e#463#464#0" expanded="true" />
                 <element signature="e#489#490#0" expanded="true" />
@@ -67,7 +64,7 @@
           <provider selected="true" editor-type-id="ui-designer" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/game/Practice.form">
           <provider selected="true" editor-type-id="ui-designer" />
         </entry>
@@ -82,11 +79,11 @@
           <provider selected="true" editor-type-id="ui-designer" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game/CharacterListGui.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="27" column="43" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+            <state relative-caret-position="121">
+              <caret line="52" column="129" lean-forward="true" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="129" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -153,12 +150,12 @@
         <option value="$PROJECT_DIR$/src/game/charactor/klass/Nexus.java" />
         <option value="$PROJECT_DIR$/src/game/charactor/klass/Tyrant.java" />
         <option value="$PROJECT_DIR$/src/game/charactor/Novice.java" />
-        <option value="$PROJECT_DIR$/src/game/charactor/Monster.java" />
         <option value="$PROJECT_DIR$/src/game/FightGui.form" />
         <option value="$PROJECT_DIR$/src/game/CharacterListGui.form" />
-        <option value="$PROJECT_DIR$/src/game/Practice.form" />
-        <option value="$PROJECT_DIR$/src/game/PracticeGui.java" />
         <option value="$PROJECT_DIR$/src/game/CharacterListGui.java" />
+        <option value="$PROJECT_DIR$/src/game/charactor/Monster.java" />
+        <option value="$PROJECT_DIR$/src/game/PracticeGui.java" />
+        <option value="$PROJECT_DIR$/src/game/Practice.form" />
       </list>
     </option>
   </component>
@@ -210,7 +207,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555398962451" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555399566576" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -344,7 +341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555397443165</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Select Mons Complete Ready to make practice fight UI">
+      <created>1555399004900</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1555399004900</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -360,7 +364,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1852349" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1852349" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -370,7 +374,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.3045326" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.31728044" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -437,7 +441,8 @@
     <MESSAGE value="reboot commit" />
     <MESSAGE value="1. add Character Select&#10;2. add Monster/Player Status&#10;3. try to add list in existing list but NullPointerException on strange line" />
     <MESSAGE value="setlistdata clear but there's a x above PracticeGui.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="setlistdata clear but there's a x above PracticeGui.java" />
+    <MESSAGE value="Select Mons Complete Ready to make practice fight UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Select Mons Complete Ready to make practice fight UI" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/game/charactor/friend/java/Novice.java" />
@@ -526,6 +531,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/charactor/klass/Nexus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/CharacterListGui.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/charactor/Novice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -540,33 +555,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/charactor/klass/Nexus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/Gui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/CharacterListGui.form">
+    <entry file="file://$PROJECT_DIR$/src/game/FightGui.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/Practice.form">
-      <provider selected="true" editor-type-id="ui-designer" />
+    <entry file="file://$PROJECT_DIR$/src/game/FightGui.java">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/game/charactor/Monster.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="29" column="63" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
+        <state relative-caret-position="-154">
+          <caret line="17" column="91" selection-start-line="17" selection-start-column="91" selection-end-line="17" selection-end-column="91" />
           <folding>
             <element signature="e#463#464#0" expanded="true" />
             <element signature="e#489#490#0" expanded="true" />
@@ -580,10 +578,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/CharacterListGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="52" column="129" lean-forward="true" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="129" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/PracticeGui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="44" column="6" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="38" />
+        <state relative-caret-position="324">
+          <caret line="90" column="49" selection-start-line="90" selection-start-column="49" selection-end-line="90" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1017#1026#0" expanded="true" />
@@ -591,21 +599,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/FightGui.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/FightGui.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/CharacterListGui.java">
+    <entry file="file://$PROJECT_DIR$/src/game/Gui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="27" column="43" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+        <state relative-caret-position="345">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/Practice.form">
+      <provider selected="true" editor-type-id="ui-designer" />
     </entry>
   </component>
   <component name="masterDetails">
