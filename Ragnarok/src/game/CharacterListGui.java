@@ -68,7 +68,9 @@ public class CharacterListGui{
                     }else if(p2 == null){
                         JOptionPane.showMessageDialog(null, "Choose Player 2 Character", "Warning", JOptionPane.WARNING_MESSAGE);
                     }else{
-                        System.out.println("Okay 2P");
+                        JLabel label = new JLabel(p1.toUpperCase() + " vs. " + p2.toUpperCase());
+                        label.setFont(new Font("Century Gothic", Font.PLAIN, 75));
+                        JOptionPane.showMessageDialog(null, label,"Battle!",JOptionPane.PLAIN_MESSAGE);
                     }
                 }
             }
