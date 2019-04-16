@@ -75,14 +75,22 @@ public class Novice {
     public int getStamina_rate(){
         return stamina_rate;
     }
-    public void use_skill_on_monster(Novice player,int skill_num, Monster target){
-        if(skill_list != null){
-
-        }
-    }
 
     public void setBlocked(boolean block){
-        blocked = block;
+        this.blocked = block;
+    }
+
+    public double getbluff_multipiler(){
+        double bluff = 1.0;
+        if(skill_list != null){
+            for(Skill d : skill_list) {
+                if (d.getType() != null && d.getType().contains("bluff")) {
+                    bluff  = d.getBluff_multipiler();
+                }
+
+            }
+        }
+        return bluff;
     }
 
     public boolean isBlocked() {
@@ -119,6 +127,11 @@ public class Novice {
     public boolean isBluffed() {
         return bluffed;
     }
+
+    public void setBluffed(boolean bluffed) {
+        this.bluffed = bluffed;
+    }
+
 
     //    public void cast_block_skill(){
 //

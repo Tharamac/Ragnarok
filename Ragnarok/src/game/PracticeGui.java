@@ -54,7 +54,7 @@ public class PracticeGui{
         skilllist.setListData(player.get_skill_list());
         list1.setSelectedIndex(0);
 
-        Monster thanaton = new Monster("Thanaton",270,140,20);
+        Monster thanaton = new Monster("Thanaton",570,140,20);
         Monster sudarit = new Monster("Sudarit",650,110,60);
         Monster mingkhan = new Monster("Mingkhan",450, 100,50);
         Monster pruyut = new Monster("Pruyut",550,140,100);
@@ -145,8 +145,11 @@ public class PracticeGui{
                     );
                     update(player,enemy);
                     if(usethis.getType() == "damage"){
-                        System.out.println(multiply);
-                        if(multiply >= 2){
+
+                        if(player.isBluffed()){
+                            multiply = player.getbluff_multipiler();
+                            player.setBluffed(false);
+                        }else if(multiply >= 2){
                             Practicelog.setText(
                                     Practicelog.getText() + "\n" + "Critical!"
                             );
@@ -159,6 +162,7 @@ public class PracticeGui{
                                     Practicelog.getText() + "\n" + "Miss!"
                             );
                         }
+                        System.out.println("Your final mulipiler : " + multiply);
                         enemy.take_damage((int)(usethis.getDamage_deal()*multiply));
                         Practicelog.setText(
                                 Practicelog.getText() + "\n" + enemy.getName() + " took " + usethis.getDamage_deal()*multiply + " damages from " + usethis.getName()
@@ -167,28 +171,79 @@ public class PracticeGui{
                                 Practicelog.getText() + "\n" + player.getName() + "'s turn ends:\n"+ player.getName() + "'s Health : " + player.get_hp() + "\n" + opponent + "'s Health : " + enemy.getHp()
                         );
 
+                    }else if(usethis.getType() == "block"){
+                        player.setBlocked(true);
+                        Practicelog.setText(
+                                Practicelog.getText() + "\nBlock!"
+                        );
+                        if(player.isBluffed()){
+                            Practicelog.setText(
+                                    Practicelog.getText() + "\nWarning: Bluff lost!"
+                            );
+                            player.setBluffed(false);
+                        }
+                        player.setBluffed(false);
+                    }else if(usethis.getType() == "bluff"){
+                        if(player.isBluffed()){
+                            JOptionPane.showMessageDialog(
+                                    null, "Already Bluffed!","Warning",JOptionPane.WARNING_MESSAGE
+                            );
+                            attackButton.setEnabled(true);
+                            skilllist.setEnabled(true);
+                            return;
+                        }else{
+                            player.setBluffed(true);
+                            Practicelog.setText(
+                                    Practicelog.getText() + "\nYour attack will increase next turn."
+                            );
+                        }
                     }
                     //enemy's turn
                     if(!enemy.isDead()){
                         Practicelog.setText(Practicelog.getText() + "\n\n --------------- " + enemy.getName() + "'s turn! ---------------");
-                        multiply = (int) getRandom(multiplier);
-                        System.out.println(multiply);
-                        if(multiply >= 2){
+                        multiply = getRandom(enemy_multiplier);
+                        System.out.println( "Enemy multipier : " + multiply);
+                        if(player.isBlocked()){
                             Practicelog.setText(
-                                    Practicelog.getText() + "\n" + "Critical!"
+                                    Practicelog.getText() + "\nBlocking..."
                             );
-                        }else if(multiply > 1){
-                            Practicelog.setText(
-                                    Practicelog.getText() + "\n" + "Bonus Damage!"
-                            );
-                        }else if(multiply == 0){
-                            Practicelog.setText(
-                                    Practicelog.getText() + "\n" + "Miss!"
-                            );
+                            if(multiply >= 1.5){
+                                Practicelog.setText(
+                                        Practicelog.getText() + "\n" + "Block Fail!"
+                                );
+                                multiply = 1.0;
+                            }else if(multiply >= 1.0){
+                                Practicelog.setText(
+                                        Practicelog.getText() + "\n" + "Blocked!"
+                                );
+                                multiply = usethis.getBlock_multipiler();
+                            }else if(multiply < 1) {
+                                Practicelog.setText(
+                                        Practicelog.getText() + "\n" + "Flawless Block!"
+                                );
+                                multiply = 0.0;
+                            }
+                        }else{
+                            if(multiply >= 2){
+                                Practicelog.setText(
+                                        Practicelog.getText() + "\n" + "Critical!"
+                                );
+                            }else if(multiply > 1){
+                                Practicelog.setText(
+                                        Practicelog.getText() + "\n" + "Bonus Damage!"
+                                );
+                            }else if(multiply == 0){
+                                Practicelog.setText(
+                                        Practicelog.getText() + "\n" + "Miss!"
+                                );
+                            }
+
                         }
+                        player.setBlocked(false);
+                        System.out.println(multiply);
                         player.take_damage((int)(enemy.getAtk() * multiply));
                         Practicelog.setText(
-                                Practicelog.getText() + "\n" + player.getName() + " attacks you " + (int)enemy.getAtk()*multiply + " damages from normal attack."
+                                Practicelog.getText() + "\n" + enemy.getName() + " attacks you " + (int)enemy.getAtk()*multiply + " damages from normal attack."
                         );
                         if(player.isDead()){
                             //TODO:: Battle ends, You lose.

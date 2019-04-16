@@ -9,7 +9,7 @@ public class Nexus extends Novice {
     private int[] skill_stamina;
 
     public Nexus(){
-        super(700, 500,25 , 4, "Nexus", 100,
+        super(700, 500,75 , 4, "Nexus", 100,
                 new Skill[]{
                         new Skill("Freezing","damage",30,70,0,0),
                         new Skill("Snowball","damage",30,150,0,0),
