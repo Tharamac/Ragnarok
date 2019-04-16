@@ -32,7 +32,7 @@ public class PracticeGui{
     private JLabel lblMonspos;
     private JList<String> skilllist;
     private JButton attackButton;
-    private JTextPane textPane1;
+    private JTextPane Practicelog;
     private JTextPane Skilllist;
     private JLabel lblsklst;
      private ArrayList<Monster> monslist = new ArrayList<Monster>();
@@ -90,6 +90,20 @@ public class PracticeGui{
                 JLabel label = new JLabel(challenger.toUpperCase() + " vs. " + opponent.toUpperCase());
                 label.setFont(new Font("Century Gothic", Font.PLAIN, 75));
                 JOptionPane.showMessageDialog(null, label,"Battle!",JOptionPane.PLAIN_MESSAGE);
+                Monster enemy = new Monster("sa",55,5,5);
+                for(Monster d : monslist) {
+                    if (d.getName() != null && d.getName().contains(opponent)) {
+                        enemy = d;
+                    }
+                }
+                attackButton.setEnabled(true);
+                fightButton.setEnabled(false);
+                list1.setEnabled(false);
+                skilllist.setEnabled(true);
+                Practicelog.setText("Turn 01: \n" + challenger + "Health : " + player.get_hp() + "\n" + opponent + "Health : " + enemy.getHp());
+                Practicelog.setText(Practicelog.getText() + "\n" + challenger + "'s turn!");
+
+
             }
         });
     }
