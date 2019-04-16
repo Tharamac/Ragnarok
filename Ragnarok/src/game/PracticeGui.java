@@ -35,10 +35,15 @@ public class PracticeGui{
     private JButton attackButton;
     private JTextPane Practicelog;
     private JButton backButton;
+    private JLabel lblDeadnum;
     private JTextPane Skilllist;
     private JLabel lblsklst;
     private ArrayList<Monster> monslist = new ArrayList<Monster>();
+    private int kill = 0;
+    private int dead = 0;
+    private int turn = 1;
     private double[] multiplier = new double[]{0.0,0.8,0.8,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.2,1.2,1.5,2.0};
+    private double[] enemy_multiplier = new double[]{0.0,0.0,0.5,0.5,0.5,0.8,0.8,0.8,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.2,1.2,1.2,1.5,2.0};
 
     public PracticeGui(Novice player){
         lblHP_val.setText(Integer.toString(player.get_hp()));
@@ -91,7 +96,6 @@ public class PracticeGui{
                 String challenger = player.getName();
                 String opponent = (String) list1.getSelectedValue();
                 player.setStamina(player.get_stamina()/2);
-
                 JLabel label = new JLabel(challenger.toUpperCase() + " vs. " + opponent.toUpperCase());
                 label.setFont(new Font("Century Gothic", Font.PLAIN, 75));
                 JOptionPane.showMessageDialog(null, label,"Battle!",JOptionPane.PLAIN_MESSAGE);
@@ -104,10 +108,12 @@ public class PracticeGui{
                 update(player,enemy);
                 attackButton.setEnabled(true);
                 fightButton.setEnabled(false);
+                Practicelog.setEnabled(true);
                 list1.setEnabled(false);
                 skilllist.setEnabled(true);
-                Practicelog.setText("Turn 01: \n" + challenger + "'s Health : " + player.get_hp() + "\n" + opponent + "'s Health : " + enemy.getHp());
-                Practicelog.setText(Practicelog.getText() + "\n" + challenger + "'s turn!");
+                Practicelog.setText("+++++++++++++++++++++ Turn "+ turn +" +++++++++++++++++++++\n" + challenger + "'s Health : " + player.get_hp() + "\n" + opponent + "'s Health : " + enemy.getHp());
+                Practicelog.setText(Practicelog.getText() + "\n --------------- Your turn! ---------------");
+
 
             }
         });
@@ -135,7 +141,7 @@ public class PracticeGui{
                 } else{
                     player.setStamina(player.get_stamina() - usethis.getStamina_cost());
                     Practicelog.setText(
-                            Practicelog.getText() + "\n" + "You use \"" + player.get_skill_list()[selected] +"\""
+                            Practicelog.getText() + "\n" + "You use \"" + player.get_skill_list()[selected] +"\"\n" + "Cost: " + usethis.getStamina_cost()
                     );
                     update(player,enemy);
                     if(usethis.getType() == "damage"){
@@ -164,7 +170,7 @@ public class PracticeGui{
                     }
                     //enemy's turn
                     if(!enemy.isDead()){
-                        Practicelog.setText(Practicelog.getText() + "\n" + enemy.getName() + "'s turn!");
+                        Practicelog.setText(Practicelog.getText() + "\n\n --------------- " + enemy.getName() + "'s turn! ---------------");
                         multiply = (int) getRandom(multiplier);
                         System.out.println(multiply);
                         if(multiply >= 2){
@@ -180,7 +186,7 @@ public class PracticeGui{
                                     Practicelog.getText() + "\n" + "Miss!"
                             );
                         }
-                        player.take_damage((int)(enemy.getAtk()* multiply));
+                        player.take_damage((int)(enemy.getAtk() * multiply));
                         Practicelog.setText(
                                 Practicelog.getText() + "\n" + player.getName() + " attacks you " + (int)enemy.getAtk()*multiply + " damages from normal attack."
                         );
@@ -189,18 +195,51 @@ public class PracticeGui{
                             JLabel label = new JLabel("You're dead. You lose.");
                             label.setFont(new Font("Century Gothic", Font.PLAIN, 75));
                             JOptionPane.showMessageDialog(null,label,"Battle Ends",JOptionPane.PLAIN_MESSAGE);
+                            Practicelog.setText(Practicelog.getText() + "\nYou're dead! You lose.");
+                            Practicelog.setText(Practicelog.getText() + "\n+++++++++++++++++++++ Battle Ends +++++++++++++++++++++\n");
+                            dead++;
+                            lblDeadnum.setText(Integer.toString(dead));
+                            player.re_stat();
+                            enemy.re_stat();
+                            attackButton.setEnabled(false);
+                            fightButton.setEnabled(true);
+                            list1.setEnabled(true);
+                            skilllist.setEnabled(false);
+                            Practicelog.setEnabled(false);
+                            update(player,enemy);
+                            return;
                         }else{
                             player.stamina_refill();
                         }
+
                     }else{
                         //TODO:: Battle ends, You wins.
-                        JLabel label = new JLabel("Enemy is dead. You wins");
+                        JLabel label = new JLabel("Enemy is dead. You wins!");
                         label.setFont(new Font("Century Gothic", Font.PLAIN, 75));
                         JOptionPane.showMessageDialog(null,label,"Battle Ends",JOptionPane.PLAIN_MESSAGE);
+                        Practicelog.setText(Practicelog.getText() + "\nEnemy is dead. You wins!");
+                        Practicelog.setText(Practicelog.getText() + "\n +++++++++++++++++++++ Battle Ends +++++++++++++++++++++\n");
+                        kill++;
+                        lblkillnum.setText(Integer.toString(kill));
+                        player.re_stat();
+                        enemy.re_stat();
+                        attackButton.setEnabled(false);
+                        fightButton.setEnabled(true);
+                        list1.setEnabled(true);
+                        skilllist.setEnabled(false);
+                        Practicelog.setEnabled(false);
+                        update(player,enemy);
+                        return;
                     }
                 }
 
                 update(player,enemy);
+                if(!player.isDead() && !enemy.isDead()){
+                    turn++;
+                    Practicelog.setText(Practicelog.getText() + "\n\n +++++++++++++++++++++ Turn "+ turn +" +++++++++++++++++++++\n" + player.getName() + "'s Health : " + player.get_hp() + "\n" + opponent + "'s Health : " + enemy.getHp());
+                    Practicelog.setText(Practicelog.getText() + "\n --------------- Your turn! ---------------");
+                }
+
                 attackButton.setEnabled(true);
                 skilllist.setEnabled(true);
             }

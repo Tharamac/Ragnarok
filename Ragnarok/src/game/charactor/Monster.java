@@ -6,6 +6,7 @@ public class Monster {
     private int hp;
     private int atk;
     private int def;
+    private int max_hp;
     private String name;
     private boolean dead = false;
     private int[] position;
@@ -13,6 +14,7 @@ public class Monster {
     public Monster(String nme,int health, int attack_point,int defense_point){
         hp = health;
         name = nme;
+        max_hp = health;
         atk = attack_point;
         def = defense_point;
         position = new int[]{(int)(Math.random() * 100 - 50),(int)(Math.random() * 100 - 50)};
@@ -52,6 +54,12 @@ public class Monster {
             return true;
         }else
             return false;
+    }
+
+    public void re_stat(){
+        hp = max_hp;
+        position = new int[]{(int)(Math.random() * 100 - 50),(int)(Math.random() * 100 - 50)};
+        dead = false;
     }
 
 

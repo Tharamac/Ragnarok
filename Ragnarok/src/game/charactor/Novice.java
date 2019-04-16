@@ -34,11 +34,12 @@ public class Novice {
     private int def;
     private boolean blocked = false;
     private boolean dead = false;
+    private boolean bluffed = false;
     private String name;
     private Inventory inventory;
     private Skill[] skill_list;
 
-    public Novice(int maxhp, int maxsta,int stam_rate,int skill_no, String Name, int defense, Skill[] skills){
+    public Novice(int maxhp, int maxsta , int stam_rate,int skill_no, String Name, int defense, Skill[] skills){
         max_hp = maxhp;
         max_stamina = maxsta;
         hp = maxhp;
@@ -115,7 +116,11 @@ public class Novice {
             return false;
     }
 
-//    public void cast_block_skill(){
+    public boolean isBluffed() {
+        return bluffed;
+    }
+
+    //    public void cast_block_skill(){
 //
 //    }
 
@@ -126,6 +131,13 @@ public class Novice {
 
     public int get_stamina(){
         return stamina;
+    }
+    public void re_stat(){
+        hp = max_hp;
+        stamina = max_stamina;
+        dead = false;
+        bluffed = false;
+        blocked = false;
     }
 
 
