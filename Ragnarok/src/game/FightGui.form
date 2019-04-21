@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="game.FightGui">
-  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="FightUI" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
@@ -16,7 +16,7 @@
         <properties/>
         <border type="none" title="Player 1"/>
         <children>
-          <grid id="3c820" layout-manager="GridLayoutManager" row-count="6" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="3c820" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -32,30 +32,12 @@
                   <text value="Charactor :   "/>
                 </properties>
               </component>
-              <component id="c77c6" class="javax.swing.JLabel" binding="lblname">
+              <component id="c77c6" class="javax.swing.JLabel" binding="p1name">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="&lt;name&gt;"/>
-                </properties>
-              </component>
-              <component id="6bf21" class="javax.swing.JLabel" binding="lblkill">
-                <constraints>
-                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="101" height="16"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <text value="Kill:"/>
-                </properties>
-              </component>
-              <component id="91e8b" class="javax.swing.JLabel" binding="lblkillnum">
-                <constraints>
-                  <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="0"/>
                 </properties>
               </component>
               <component id="e7517" class="javax.swing.JLabel" binding="lblHP">
@@ -74,7 +56,7 @@
                   <text value="Stamina : "/>
                 </properties>
               </component>
-              <component id="90a76" class="javax.swing.JLabel" binding="lblHP_val">
+              <component id="90a76" class="javax.swing.JLabel" binding="p1HP_val">
                 <constraints>
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -82,7 +64,7 @@
                   <text value="1000"/>
                 </properties>
               </component>
-              <component id="5aeff" class="javax.swing.JLabel" binding="lblstamina_val">
+              <component id="5aeff" class="javax.swing.JLabel" binding="p1stamina_val">
                 <constraints>
                   <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -98,7 +80,7 @@
                   <text value="Defense :"/>
                 </properties>
               </component>
-              <component id="d8c44" class="javax.swing.JLabel" binding="lblGenDef">
+              <component id="d8c44" class="javax.swing.JLabel" binding="p1Def">
                 <constraints>
                   <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -114,7 +96,7 @@
                   <text value="Stamina Rate :"/>
                 </properties>
               </component>
-              <component id="3e262" class="javax.swing.JLabel" binding="lblStamrate">
+              <component id="3e262" class="javax.swing.JLabel" binding="p1Stamrate">
                 <constraints>
                   <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -124,7 +106,7 @@
               </component>
             </children>
           </grid>
-          <component id="1c3bd" class="javax.swing.JList" binding="list1" default-binding="true">
+          <component id="1c3bd" class="javax.swing.JList" binding="skillp1">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="50"/>
@@ -132,12 +114,12 @@
             </constraints>
             <properties/>
           </component>
-          <component id="53d5f" class="javax.swing.JButton" binding="button1" default-binding="true">
+          <component id="53d5f" class="javax.swing.JButton" binding="attackp1">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Button"/>
+              <text value="Attack!"/>
             </properties>
           </component>
         </children>
@@ -150,7 +132,7 @@
         <properties/>
         <border type="none" title="Player 2"/>
         <children>
-          <grid id="37467" layout-manager="GridLayoutManager" row-count="6" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="37467" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -166,30 +148,12 @@
                   <text value="Charactor :   "/>
                 </properties>
               </component>
-              <component id="92794" class="javax.swing.JLabel">
+              <component id="92794" class="javax.swing.JLabel" binding="p2name">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="&lt;name&gt;"/>
-                </properties>
-              </component>
-              <component id="8333c" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="101" height="16"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <text value="Kill:"/>
-                </properties>
-              </component>
-              <component id="86466" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="0"/>
                 </properties>
               </component>
               <component id="1983f" class="javax.swing.JLabel">
@@ -208,7 +172,7 @@
                   <text value="Stamina : "/>
                 </properties>
               </component>
-              <component id="d044d" class="javax.swing.JLabel">
+              <component id="d044d" class="javax.swing.JLabel" binding="p2HP_val">
                 <constraints>
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -216,7 +180,7 @@
                   <text value="1000"/>
                 </properties>
               </component>
-              <component id="8bdf4" class="javax.swing.JLabel">
+              <component id="8bdf4" class="javax.swing.JLabel" binding="p2stamina_val">
                 <constraints>
                   <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -232,7 +196,7 @@
                   <text value="Defense :"/>
                 </properties>
               </component>
-              <component id="add94" class="javax.swing.JLabel">
+              <component id="add94" class="javax.swing.JLabel" binding="p2Def">
                 <constraints>
                   <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -248,7 +212,7 @@
                   <text value="Stamina Rate :"/>
                 </properties>
               </component>
-              <component id="a1061" class="javax.swing.JLabel">
+              <component id="a1061" class="javax.swing.JLabel" binding="p2Stamrate">
                 <constraints>
                   <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -258,7 +222,7 @@
               </component>
             </children>
           </grid>
-          <component id="c76a9" class="javax.swing.JList" binding="list2" default-binding="true">
+          <component id="c76a9" class="javax.swing.JList" binding="skillp2">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="50"/>
@@ -266,12 +230,12 @@
             </constraints>
             <properties/>
           </component>
-          <component id="89860" class="javax.swing.JButton" binding="button2" default-binding="true">
+          <component id="89860" class="javax.swing.JButton" binding="attackp2">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Button"/>
+              <text value="Attack!"/>
             </properties>
           </component>
         </children>
@@ -284,13 +248,15 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="3c295" class="javax.swing.JTextPane" binding="textPane1" default-binding="true">
+          <component id="3c295" class="javax.swing.JTextPane" binding="battlelog">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="50"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <editable value="false"/>
+            </properties>
           </component>
         </children>
       </grid>

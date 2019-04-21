@@ -20,7 +20,9 @@ public class Gui{
         btnPractice.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new CharacterListGui(0).load();
+                CharacterListGui a = new CharacterListGui(0);
+                a.load(a);
+                //new CharacterListGui(0).load();
                 JFrame current = (JFrame) SwingUtilities.getWindowAncestor(MainGui);
                 current.dispose();
             }
@@ -28,23 +30,24 @@ public class Gui{
         btnPlay.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new CharacterListGui(1).load();
+                CharacterListGui a = new CharacterListGui(1);
+                a.load(a);
                 JFrame current = (JFrame) SwingUtilities.getWindowAncestor(MainGui);
                 current.dispose();
             }
         });
     }
 
-    public void load(){
+    public void load(Gui ui){
         JFrame frame = new JFrame("Test");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setContentPane(new Gui().MainGui);
+        frame.setContentPane(ui.MainGui);
         frame.pack();
         frame.setVisible(true);
     }
 
     public static void main(String[] args) {
-        new Gui().load();
-
+        Gui a = new Gui();
+        a.load(a);
     }
 }

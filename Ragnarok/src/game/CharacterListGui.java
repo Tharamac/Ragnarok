@@ -38,7 +38,8 @@ public class CharacterListGui{
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Gui().load();
+                Gui a = new Gui();
+                a.load(a);
                 JFrame current = (JFrame) SwingUtilities.getWindowAncestor(choosechar);
                 current.dispose();
             }
@@ -55,7 +56,8 @@ public class CharacterListGui{
 
                         try {
                             System.out.println(p1);
-                            new PracticeGui((Novice)generate("game.charactor.klass." + p1)).load((Novice)generate("game.charactor.klass." + p1));
+                            PracticeGui a = new PracticeGui((Novice)generate("game.charactor.klass." + p1));
+                            a.load(a);
                         } catch (Exception e1) {
                             e1.printStackTrace();
                         }
@@ -71,16 +73,24 @@ public class CharacterListGui{
                         JLabel label = new JLabel(p1.toUpperCase() + " vs. " + p2.toUpperCase());
                         label.setFont(new Font("Century Gothic", Font.PLAIN, 75));
                         JOptionPane.showMessageDialog(null, label,"Battle!",JOptionPane.PLAIN_MESSAGE);
+                        try {
+                            FightGui a = new FightGui((Novice)generate("game.charactor.klass." + p1),(Novice)generate("game.charactor.klass." + p2));
+                            a.load(a);
+                            JFrame current = (JFrame) SwingUtilities.getWindowAncestor(choosechar);
+                            current.dispose();
+                        } catch (Exception e1) {
+                            e1.printStackTrace();
+                        }
                     }
                 }
             }
         });
     }
 
-    public void load(){
+    public void load(CharacterListGui ui){
         JFrame frame = new JFrame("Choose Character");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setContentPane(new CharacterListGui(type).choosechar);
+        frame.setContentPane(ui.choosechar);
         frame.setPreferredSize(new Dimension(640, 480));
         frame.pack();
         frame.setVisible(true);

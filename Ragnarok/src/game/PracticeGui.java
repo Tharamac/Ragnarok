@@ -43,7 +43,7 @@ public class PracticeGui{
     private int dead = 0;
     private int turn = 1;
     private double[] multiplier = new double[]{0.0,0.8,0.8,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.2,1.2,1.5,2.0};
-    private double[] enemy_multiplier = new double[]{0.0,0.0,0.5,0.5,0.5,0.8,0.8,0.8,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.2,1.2,1.2,1.5,2.0};
+    private double[] enemy_multiplier = new double[]{0.0,0.0,0.0,0.5,0.5,0.5,0.8,0.8,0.8,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.2,1.2,1.2,1.5,2.0};
 
     public PracticeGui(Novice player){
         lblHP_val.setText(Integer.toString(player.get_hp()));
@@ -144,7 +144,7 @@ public class PracticeGui{
                             Practicelog.getText() + "\n" + "You use \"" + player.get_skill_list()[selected] +"\"\n" + "Cost: " + usethis.getStamina_cost()
                     );
                     update(player,enemy);
-                    if(usethis.getType() == "damage"){
+                    if(usethis.getType().equals("damage")){
 
                         if(player.isBluffed()){
                             multiply = player.getbluff_multipiler();
@@ -171,7 +171,7 @@ public class PracticeGui{
                                 Practicelog.getText() + "\n" + player.getName() + "'s turn ends:\n"+ player.getName() + "'s Health : " + player.get_hp() + "\n" + opponent + "'s Health : " + enemy.getHp()
                         );
 
-                    }else if(usethis.getType() == "block"){
+                    }else if(usethis.getType().equals("block")){
                         player.setBlocked(true);
                         Practicelog.setText(
                                 Practicelog.getText() + "\nBlock!"
@@ -183,7 +183,7 @@ public class PracticeGui{
                             player.setBluffed(false);
                         }
                         player.setBluffed(false);
-                    }else if(usethis.getType() == "bluff"){
+                    }else if(usethis.getType().equals("bluff")){
                         if(player.isBluffed()){
                             JOptionPane.showMessageDialog(
                                     null, "Already Bluffed!","Warning",JOptionPane.WARNING_MESSAGE
@@ -302,18 +302,19 @@ public class PracticeGui{
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new CharacterListGui(0).load();
+                CharacterListGui a = new CharacterListGui(0);
+                a.load(a);
                 JFrame current = (JFrame) SwingUtilities.getWindowAncestor(Practice);
                 current.dispose();
             }
         });
     }
 
-    public void load(Novice player){
-        System.out.println(player.get_hp());
+    public void load(PracticeGui ui){
+
         JFrame frame = new JFrame("Practice");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setContentPane(new PracticeGui(player).Practice);
+        frame.setContentPane(ui.Practice);
         frame.setPreferredSize(new Dimension(640, 480));
         frame.pack();
         frame.setVisible(true);
@@ -329,6 +330,7 @@ public class PracticeGui{
         lblstamina_val.setText(Integer.toString(player.get_stamina()));
         lblMonsHp.setText(Integer.toString(enemy.getHp()));
     }
+
 
 
 }

@@ -1,6 +1,6 @@
 package game.charactor;
 
-import java.util.Random;
+
 
 public class Monster {
     private int hp;
