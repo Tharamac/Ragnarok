@@ -4,6 +4,8 @@ import game.charactor.Novice;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 
 public class FightGui {
@@ -26,6 +28,7 @@ public class FightGui {
     private JLabel p2stamina_val;
     private JLabel p2Stamrate;
     private JLabel p2Def;
+    private JButton Cancel;
     private int turn = 1;
     private int rand = (int)(Math.random() * 100);
 
@@ -74,6 +77,15 @@ public class FightGui {
         }
 
 
+        Cancel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Gui a = new Gui();
+                a.load(a);
+                JFrame current = (JFrame) SwingUtilities.getWindowAncestor(FightUI);
+                current.dispose();
+            }
+        });
     }
 
     public void load(FightGui ui){
