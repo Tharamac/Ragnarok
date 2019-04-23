@@ -36,14 +36,16 @@ public class Novice {
     private boolean dead = false;
     private boolean bluffed = false;
     private boolean reflected = false;
+    private double[] defense_probability;
     private String name;
     private Inventory inventory;
     private Skill[] skill_list;
 
-    public Novice(int maxhp, int maxsta , int stam_rate,int skill_no, String Name, int defense, Skill[] skills){
+    public Novice(int maxhp, int maxsta , int stam_rate,int skill_no, String Name, int defense, Skill[] skills,double[] def_prob){
         max_hp = maxhp;
         max_stamina = maxsta;
         hp = maxhp;
+        defense_probability = def_prob;
         name = Name;
         stamina = maxsta;
         stamina_rate = stam_rate;
@@ -63,6 +65,10 @@ public class Novice {
             }
         }
         return list;
+    }
+
+    public double[] getDefense_probability() {
+        return defense_probability;
     }
 
     public Skill[] getSkills() {

@@ -127,7 +127,7 @@ public class PracticeGui{
                 Skill usethis = player.getSkills()[selected];
                 String opponent = (String) list1.getSelectedValue();
                 Monster enemy = new Monster("sa",55,5,5);
-                double multiply = getRandom(multiplier);
+                double multiply = getRandom(player.getDefense_probability());
                 for(Monster d : monslist) {
                     if (d.getName() != null && d.getName().contains(opponent)) {
                         enemy = d;
