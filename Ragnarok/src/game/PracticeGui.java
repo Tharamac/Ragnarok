@@ -61,12 +61,21 @@ public class PracticeGui{
         Monster pruyut = new Monster("Pruyut",550,140,100);
         Monster prawit = new Monster("Prawish",675,160,120);
         Monster aprilat = new Monster("Aprilat", 420,180,100);
+        Monster peeyabuddy = new Monster("Peeyabuddy",470,150,55);
+        Monster praiball = new Monster("Praiball",510,110,70);
+        Monster sathep = new Monster("Sathep",680,150,120);
+        Monster takksan = new Monster("Takksan (Boss)", 1480,225,190);
+
         monslist.add(thanaton);
         monslist.add(sudarit);
         monslist.add(mingkhan);
         monslist.add(pruyut);
         monslist.add(prawit);
         monslist.add(aprilat);
+        monslist.add(sathep);
+        monslist.add(peeyabuddy);
+        monslist.add(praiball);
+        monslist.add(takksan);
         lblMonsname.setText(monslist.get(0).getName());
         lblMonsHp.setText(Integer.toString(monslist.get(0).getHp()));
         lblMonsAtk.setText(Integer.toString(monslist.get(0).getAtk()));

@@ -22,16 +22,19 @@ public class CharacterListGui{
     private JButton goButton;
     private JLabel lblPlayer2;
     private int type; // 0 for practice 1 for two player
-    private String[] charactorlist = {"Blade","Nexus","Tyrant"};
+    private String[] charactorlist = {"Blade","Nexus","Tyrant","Protektor","Psycho","Bomberman","Varoni","Handshadow"};
     public CharacterListGui(int mode){
         lstPlayer1Select.setSelectedIndex(0);
         lstPlayer2Select.setSelectedIndex(0);
+        lstPlayer1Select.setListData(charactorlist);
+        lstPlayer2Select.setListData(charactorlist);
         type = mode;
         if(type == 0){
             System.out.println(type);
             lstPlayer2Select.setEnabled(false);
             lstPlayer1Select.setEnabled(true);
         }else if(type == 1){
+
             lstPlayer2Select.setEnabled(true);
             lstPlayer1Select.setEnabled(true);
         }

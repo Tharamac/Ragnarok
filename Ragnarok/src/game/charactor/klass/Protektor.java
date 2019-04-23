@@ -5,7 +5,7 @@ import game.charactor.Skill;
 
 public class Protektor extends Novice{
     public Protektor() {
-        super(740,600,40,5,"Protektor",350,
+        super(740,600,40,5,"Protektor",400,
                 new Skill[]{
                         new Skill("Protek","block",0,0,0.75,0),
                         new Skill("Pink Ponk","reflect",55,0,0.65,0.5),
