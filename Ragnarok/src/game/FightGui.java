@@ -66,7 +66,7 @@ public class FightGui {
         p2Stamrate.setText(Integer.toString(p2.getStamina_rate()));
         skillp2.setListData(p2.get_skill_list());
         skillp2.setSelectedIndex(0);
-        battlelog.setText("BATTLE START! " + p1.getName().toUpperCase() + "(Player 1) vs. "+ p2.getName().toUpperCase() + "(Player 2)" );
+        battlelog.setText("BATTLE START!\n" + p1.getName().toUpperCase() + "(Player 1) vs. "+ p2.getName().toUpperCase() + "(Player 2)" );
 
 
         if(rand % 2 == 0){
@@ -114,6 +114,9 @@ public class FightGui {
                     JOptionPane.showMessageDialog(
                             null, "Not enough stamina!", "Error", JOptionPane.ERROR_MESSAGE
                     );
+                    attackp1.setEnabled(true);
+                    skillp1.setEnabled(true);
+                    return;
                 } else {
                     p1.setStamina(p1.get_stamina() - p1usethis.getStamina_cost());
                     battlelog.setText(
@@ -264,8 +267,9 @@ public class FightGui {
                 }else{
                     battlelog.setText(battlelog.getText() + "\n --------------- Player 2 turn! ---------------");
                 }
-                update();
+
                 p1.stamina_refill();
+                update();
                 skillp2.setEnabled(true);
                 attackp2.setEnabled(true);
             }
@@ -283,6 +287,9 @@ public class FightGui {
                     JOptionPane.showMessageDialog(
                             null, "Not enough stamina!", "Error", JOptionPane.ERROR_MESSAGE
                     );
+                    attackp2.setEnabled(true);
+                    skillp2.setEnabled(true);
+                    return;
                 } else {
                     p2.setStamina(p2.get_stamina() - p2usethis.getStamina_cost());
                     battlelog.setText(
@@ -406,7 +413,7 @@ public class FightGui {
                         }
                     }else if(p2usethis.getType().equals("reflect")){
                         p2.setReflected(true);
-                        reflect_multiplier = p1usethis.getBluff_multipiler();
+                        reflect_multiplier = p2usethis.getBluff_multipiler();
                         battlelog.setText(
                                 battlelog.getText() + "\nReflected!"
                         );
@@ -431,8 +438,9 @@ public class FightGui {
                 }else{
                     battlelog.setText(battlelog.getText() + "\n --------------- Player 1 turn! ---------------");
                 }
-                update();
+
                 p2.stamina_refill();
+                update();
                 skillp1.setEnabled(true);
                 attackp1.setEnabled(true);
             }
