@@ -19,13 +19,13 @@
       <component id="c73e9" class="javax.swing.JButton" binding="btnPractice">
         <constraints/>
         <properties>
-          <text value="Practice"/>
+          <text value="1 Player"/>
         </properties>
       </component>
       <component id="a2e9d" class="javax.swing.JButton" binding="btnPlay">
         <constraints/>
         <properties>
-          <text value="Play!"/>
+          <text value="2 Player"/>
           <toolTipText value="Play 2 players fighter game"/>
         </properties>
       </component>
