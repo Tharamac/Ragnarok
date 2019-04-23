@@ -36,6 +36,7 @@ public class PracticeGui{
     private JTextPane Practicelog;
     private JButton backButton;
     private JLabel lblDeadnum;
+    private JLabel cost;
     private JTextPane Skilllist;
     private JLabel lblsklst;
     private ArrayList<Monster> monslist = new ArrayList<Monster>();
@@ -143,7 +144,6 @@ public class PracticeGui{
                     Practicelog.setText(
                             Practicelog.getText() + "\n" + "You use \"" + player.get_skill_list()[selected] +"\"\n" + "Cost: " + usethis.getStamina_cost()
                     );
-                    update(player,enemy);
                     if(usethis.getType().equals("damage")){
 
                         if(player.isBluffed()){
@@ -197,7 +197,28 @@ public class PracticeGui{
                                     Practicelog.getText() + "\nYour attack will increase next turn."
                             );
                         }
+                    }else if(usethis.getType().equals("bluff & block")){
+                        if(player.isBluffed()){
+                            JOptionPane.showMessageDialog(
+                                    null, "Already Bluffed!","Warning",JOptionPane.WARNING_MESSAGE
+                            );
+                            attackButton.setEnabled(true);
+                            skilllist.setEnabled(true);
+                            return;
+                        }else{
+                            player.setBluffed(true);
+                            player.setBlocked(true);
+                            Practicelog.setText(
+                                    Practicelog.getText() + "\nYou are protected and your attack will increase next turn."
+                            );
+                        }
+                    }else if(usethis.getType().equals("reflect")){
+                           player.setReflected(true);
+                           Practicelog.setText(
+                                    Practicelog.getText() + "\nReflected!"
+                           );
                     }
+                    update(player,enemy);
                     //enemy's turn
                     if(!enemy.isDead()){
                         Practicelog.setText(Practicelog.getText() + "\n\n --------------- " + enemy.getName() + "'s turn! ---------------");
@@ -241,7 +262,17 @@ public class PracticeGui{
                         }
                         player.setBlocked(false);
                         System.out.println(multiply);
-                        player.take_damage((int)(enemy.getAtk() * multiply));
+                        if(player.isReflected()){
+                            multiply = usethis.getBlock_multipiler();
+                            player.take_damage((int)(enemy.getAtk() * multiply));
+                            enemy.take_damage((int)(enemy.getAtk() * usethis.getBluff_multipiler()));
+                            Practicelog.setText(
+                                    Practicelog.getText() + "\nReflected! " + (int) (enemy.getAtk() * usethis.getBluff_multipiler()) + " damages."
+                            );
+                        }else{
+                            player.take_damage((int)(enemy.getAtk() * multiply));
+                        }
+                        player.setReflected(false);
                         Practicelog.setText(
                                 Practicelog.getText() + "\n" + enemy.getName() + " attacks you " + (int)enemy.getAtk()*multiply + " damages from normal attack."
                         );
@@ -263,8 +294,6 @@ public class PracticeGui{
                             Practicelog.setEnabled(false);
                             update(player,enemy);
                             return;
-                        }else{
-                            player.stamina_refill();
                         }
 
                     }else{
@@ -291,6 +320,7 @@ public class PracticeGui{
                 update(player,enemy);
                 if(!player.isDead() && !enemy.isDead()){
                     turn++;
+                    player.stamina_refill();
                     Practicelog.setText(Practicelog.getText() + "\n\n +++++++++++++++++++++ Turn "+ turn +" +++++++++++++++++++++\n" + player.getName() + "'s Health : " + player.get_hp() + "\n" + opponent + "'s Health : " + enemy.getHp());
                     Practicelog.setText(Practicelog.getText() + "\n --------------- Your turn! ---------------");
                 }
@@ -308,6 +338,14 @@ public class PracticeGui{
                 current.dispose();
             }
         });
+        skilllist.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                int selected = skilllist.getSelectedIndex();
+                cost.setText(String.valueOf(player.getSkills()[selected].getStamina_cost()));
+            }
+        });
+
     }
 
     public void load(PracticeGui ui){
@@ -330,6 +368,7 @@ public class PracticeGui{
         lblstamina_val.setText(Integer.toString(player.get_stamina()));
         lblMonsHp.setText(Integer.toString(enemy.getHp()));
     }
+
 
 
 

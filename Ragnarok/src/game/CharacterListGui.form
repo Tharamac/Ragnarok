@@ -57,6 +57,7 @@
                 <item value="Blade"/>
                 <item value="Nexus"/>
                 <item value="Tyrant"/>
+                <item value="Protektor"/>
               </model>
               <selectionMode value="0"/>
             </properties>
@@ -77,6 +78,7 @@
                 <item value="Blade"/>
                 <item value="Nexus"/>
                 <item value="Tyrant"/>
+                <item value="Protektor"/>
               </model>
               <selectionMode value="0"/>
             </properties>

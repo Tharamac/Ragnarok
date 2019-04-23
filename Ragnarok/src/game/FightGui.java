@@ -5,6 +5,8 @@ import game.charactor.Novice;
 import game.charactor.Skill;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,7 +37,9 @@ public class FightGui {
     private JButton Cancel;
     private JLabel p1cost;
     private JLabel p2cost;
-    private int turn = 1;
+    private Skill p1usethis;
+    private Skill p2usethis;
+//    private int turn = 1;
     private int rand = (int)(Math.random() * 100);
     private Novice p1,p2;
     private double[] multiplier = new double[]{0.0,0.8,0.8,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.2,1.2,1.5,2.0};
@@ -60,7 +64,7 @@ public class FightGui {
         p2Stamrate.setText(Integer.toString(p2.getStamina_rate()));
         skillp2.setListData(p2.get_skill_list());
         skillp2.setSelectedIndex(0);
-        battlelog.setText("+++++++++++++++++++++ Turn "+ turn +" +++++++++++++++++++++\n(Player 1) " + p1.getName() + "'s Health : " + p1.get_hp() + "\n(Player 2) " + p2.getName() + "'s Health : " + p2.get_hp());
+        battlelog.setText("BATTLE START! " + p1.getName().toUpperCase() + "(Player 1) vs. "+ p2.getName().toUpperCase() + "(Player 2)" );
 
 
         if(rand % 2 == 0){
@@ -72,7 +76,7 @@ public class FightGui {
             skillp2.setEnabled(false);
             attackp1.setEnabled(true);
             attackp2.setEnabled(false);
-            battlelog.setText(battlelog.getText() + "\n --------------- Player 1 turn! ---------------");
+            battlelog.setText(battlelog.getText()+ "\n--------------- Player 1 turn! ---------------");
         }else{
             //p2 first
             JLabel label = new JLabel("Player 2 First!");
@@ -82,7 +86,7 @@ public class FightGui {
             skillp1.setEnabled(false);
             attackp2.setEnabled(true);
             attackp1.setEnabled(false);
-            battlelog.setText(battlelog.getText() + "\n --------------- Player 2 turn! ---------------");
+            battlelog.setText(battlelog.getText() + "\n--------------- Player 2 turn! ---------------");
         }
 
 
@@ -102,19 +106,19 @@ public class FightGui {
                 attackp1.setEnabled(false);
                 skillp1.setEnabled(false);
                 int selected = skillp1.getSelectedIndex();
-                Skill usethis = p1.getSkills()[selected];
+                p1usethis = p1.getSkills()[selected];
                 double multiply = getRandom(multiplier);
-                if (usethis.getStamina_cost() > p1.get_stamina()) {
+                if (p1usethis.getStamina_cost() > p1.get_stamina()) {
                     JOptionPane.showMessageDialog(
                             null, "Not enough stamina!", "Error", JOptionPane.ERROR_MESSAGE
                     );
                 } else {
-                    p1.setStamina(p1.get_stamina() - usethis.getStamina_cost());
+                    p1.setStamina(p1.get_stamina() - p1usethis.getStamina_cost());
                     battlelog.setText(
-                            battlelog.getText() + "\n" + "Player 1 uses \"" + p1.get_skill_list()[selected] + "\"\n" + "Cost: " + usethis.getStamina_cost()
+                            battlelog.getText() + "\n" + "Player 1 uses \"" + p1.get_skill_list()[selected] + "\"\n" + "Cost: " + p1usethis.getStamina_cost()
                     );
                     update();
-                    if(usethis.getType().equals("damage")) {
+                    if(p1usethis.getType().equals("damage")) {
                         if(p2.isBlocked()){
                             battlelog.setText(
                                     battlelog.getText() + "\nPlayer 2 blocking..."
@@ -128,7 +132,7 @@ public class FightGui {
                                 battlelog.setText(
                                         battlelog.getText() + "\n" + "Blocked!"
                                 );
-                                multiply = usethis.getBlock_multipiler();
+                                multiply = p1usethis.getBlock_multipiler();
                             }else if(multiply < 1) {
                                 if(!p1.isBluffed())
                                     battlelog.setText(
@@ -139,7 +143,7 @@ public class FightGui {
                                     battlelog.setText(
                                             battlelog.getText() + "\n" + "Block!"
                                     );
-                                    multiply = usethis.getBlock_multipiler();
+                                    multiply = p1usethis.getBlock_multipiler();
                                 }
                         }
                         if (p1.isBluffed()) {
@@ -153,6 +157,14 @@ public class FightGui {
                             battlelog.setText(
                                     battlelog.getText() + "\n" + "Bonus Damage!"
                             );
+                        }else if(multiply == 1){
+                            battlelog.setText(
+                                    battlelog.getText() + "\n" + "Hit!"
+                            );
+                        }else if(multiply < 1){
+                            battlelog.setText(
+                                    battlelog.getText() + "\n" + "Weak!"
+                            );
                         }else if (multiply == 0) {
                             battlelog.setText(
                                     battlelog.getText() + "\n" + "Miss!"
@@ -160,15 +172,15 @@ public class FightGui {
                         }
                         p2.setBlocked(false);
                         System.out.println("Your final mulipiler : " + multiply);
-                        p2.take_damage((int) (usethis.getDamage_deal() * multiply));
+                        p2.take_damage((int) (p1usethis.getDamage_deal() * multiply));
                         battlelog.setText(
-                                battlelog.getText() + "\nPlayer 2 took " + usethis.getDamage_deal() * multiply + " damages."
+                                battlelog.getText() + "\nPlayer 2 took " + p1usethis.getDamage_deal() * multiply + " damages."
                         );
                         battlelog.setText(
-                                battlelog.getText() + "\nPlayer 1's turn ends:\n" + p1.getName() + "'s Health : " + p1.get_hp() + "\nPlayer 2's Health : " + p2.get_hp()
+                                battlelog.getText() + "\n\n------------------Player 1's turn ends------------------\nPlayer 1's Health : " + p1.get_hp() + "\nPlayer 2's Health : " + p2.get_hp()
                         );
 
-                    } else if (usethis.getType().equals("block")) {
+                    } else if (p1usethis.getType().equals("block")) {
                         p1.setBlocked(true);
                         battlelog.setText(
                                 battlelog.getText() + "\nBlock!"
@@ -180,7 +192,7 @@ public class FightGui {
                             p1.setBluffed(false);
                         }
                         p1.setBluffed(false);
-                    } else if (usethis.getType().equals("bluff")) {
+                    } else if (p1usethis.getType().equals("bluff")) {
                         if (p1.isBluffed()) {
                             JOptionPane.showMessageDialog(
                                     null, "Already Bluffed!", "Warning", JOptionPane.WARNING_MESSAGE
@@ -202,7 +214,7 @@ public class FightGui {
                     label.setFont(new Font("Century Gothic", Font.PLAIN, 75));
                     JOptionPane.showMessageDialog(null,label,"Battle Ends",JOptionPane.PLAIN_MESSAGE);
                     battlelog.setText(battlelog.getText() + "\nPlayer 1 wins!");
-                    battlelog.setText(battlelog.getText() + "\n +++++++++++++++++++++ Battle Ends +++++++++++++++++++++\n");
+                    battlelog.setText(battlelog.getText() + "\n +++++++++++++++++++++ BATTLE ENDS +++++++++++++++++++++\n");
                     update();
                     p1.re_stat();
                     p2.re_stat();
@@ -212,15 +224,161 @@ public class FightGui {
                     skillp2.setEnabled(false);
                     battlelog.setEnabled(false);
                     return;
+                }else{
+                    battlelog.setText(battlelog.getText() + "\n --------------- Player 2 turn! ---------------");
                 }
                 update();
-                if(!p1.isDead() && !p2.isDead()){
-                    turn++;
-                    battlelog.setText(battlelog.getText() + "\n+++++++++++++++++++++ Turn "+ turn +" +++++++++++++++++++++\n(Player1) " + p1.getName() + "'s Health : " + p1.get_hp() + "\n(Player2) " + p2.getName() + "'s Health : " + p2.get_hp());
-                    battlelog.setText(battlelog.getText() + "\n --------------- Player 2 turn! ---------------");
-
-                }
+                p1.stamina_refill();
+                skillp2.setEnabled(true);
                 attackp2.setEnabled(true);
+            }
+        });
+        attackp2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO:: p2 attack!
+                attackp2.setEnabled(false);
+                skillp2.setEnabled(false);
+                int selected = skillp2.getSelectedIndex();
+                p2usethis = p2.getSkills()[selected];
+                double multiply = getRandom(multiplier);
+                if (p2usethis.getStamina_cost() > p2.get_stamina()) {
+                    JOptionPane.showMessageDialog(
+                            null, "Not enough stamina!", "Error", JOptionPane.ERROR_MESSAGE
+                    );
+                } else {
+                    p2.setStamina(p2.get_stamina() - p2usethis.getStamina_cost());
+                    battlelog.setText(
+                            battlelog.getText() + "\n" + "Player 2 uses \"" + p2.get_skill_list()[selected] + "\"\n" + "Cost: " + p2usethis.getStamina_cost()
+                    );
+                    update();
+                    if(p2usethis.getType().equals("damage")) {
+                        if(p1.isBlocked()){
+                            battlelog.setText(
+                                    battlelog.getText() + "\nPlayer 1 blocking..."
+                            );
+                            if(multiply >= 1.5){
+                                battlelog.setText(
+                                        battlelog.getText() + "\n" + "Block Fail!"
+                                );
+                                multiply = 1.0;
+                            }else if(multiply >= 1.0){
+                                battlelog.setText(
+                                        battlelog.getText() + "\n" + "Blocked!"
+                                );
+                                multiply = p2usethis.getBlock_multipiler();
+                            }else if(multiply < 1) {
+                                if(!p1.isBluffed())
+                                    battlelog.setText(
+                                            battlelog.getText() + "\n" + "Flawless Block!"
+                                    );
+                                multiply = 0.0;
+                            }else {
+                                battlelog.setText(
+                                        battlelog.getText() + "\n" + "Block!"
+                                );
+                                multiply = p2usethis.getBlock_multipiler();
+                            }
+                        }
+                        if (p2.isBluffed()) {
+                            multiply = multiply * p1.getbluff_multipiler();
+                            p2.setBluffed(false);
+                        }else if (multiply >= 2) {
+                            battlelog.setText(
+                                    battlelog.getText() + "\n" + "Critical!"
+                            );
+                        }else if (multiply > 1) {
+                            battlelog.setText(
+                                    battlelog.getText() + "\n" + "Bonus Damage!"
+                            );
+                        }else if(multiply == 1){
+                            battlelog.setText(
+                                    battlelog.getText() + "\n" + "Hit!"
+                            );
+                        }else if(multiply < 1){
+                            battlelog.setText(
+                                    battlelog.getText() + "\n" + "Weak!"
+                            );
+                        }else if (multiply == 0) {
+                            battlelog.setText(
+                                    battlelog.getText() + "\n" + "Miss!"
+                            );
+                        }
+                        p1.setBlocked(false);
+                        System.out.println("Your final mulipiler : " + multiply);
+                        p1.take_damage((int) (p2usethis.getDamage_deal() * multiply));
+                        battlelog.setText(
+                                battlelog.getText() + "\nPlayer 1 took " + p2usethis.getDamage_deal() * multiply + " damages."
+                        );
+                        battlelog.setText(
+                                battlelog.getText() + "\n\n------------------Player 2's turn ends------------------\nPlayer 1's Health : " + p1.get_hp() + "\nPlayer 2's Health : " + p2.get_hp()
+                        );
+
+                    } else if (p2usethis.getType().equals("block")) {
+                        p2.setBlocked(true);
+                        battlelog.setText(
+                                battlelog.getText() + "\nBlock!"
+                        );
+                        if (p2.isBluffed()) {
+                            battlelog.setText(
+                                    battlelog.getText() + "\nWarning: Bluff lost!"
+                            );
+                            p2.setBluffed(false);
+                        }
+                        p2.setBluffed(false);
+                    } else if (p2usethis.getType().equals("bluff")) {
+                        if (p2.isBluffed()) {
+                            JOptionPane.showMessageDialog(
+                                    null, "Already Bluffed!", "Warning", JOptionPane.WARNING_MESSAGE
+                            );
+                            attackp2.setEnabled(true);
+                            skillp2.setEnabled(true);
+                            return;
+                        } else {
+                            p2.setBluffed(true);
+                            battlelog.setText(
+                                    battlelog.getText() + "\nYour attack will increase next turn."
+                            );
+                        }
+                    }
+                }
+                if(p1.isDead()){
+                    //TODO:: p1 dead p2 wins
+                    JLabel label = new JLabel("Player 2 wins!");
+                    label.setFont(new Font("Century Gothic", Font.PLAIN, 75));
+                    JOptionPane.showMessageDialog(null,label,"Battle Ends",JOptionPane.PLAIN_MESSAGE);
+                    battlelog.setText(battlelog.getText() + "\nPlayer 2 wins!");
+                    battlelog.setText(battlelog.getText() + "\n +++++++++++++++++++++ BATTLE ENDS +++++++++++++++++++++\n");
+                    update();
+                    p1.re_stat();
+                    p2.re_stat();
+                    attackp1.setEnabled(false);
+                    attackp2.setEnabled(false);
+                    skillp1.setEnabled(false);
+                    skillp2.setEnabled(false);
+                    battlelog.setEnabled(false);
+                    return;
+                }else{
+                    battlelog.setText(battlelog.getText() + "\n --------------- Player 1 turn! ---------------");
+                }
+                update();
+                p2.stamina_refill();
+                skillp1.setEnabled(true);
+                attackp1.setEnabled(true);
+            }
+        });
+        skillp1.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                int selected = skillp1.getSelectedIndex();
+                p1cost.setText(String.valueOf(p1.getSkills()[selected].getStamina_cost()));
+            }
+        });
+        skillp2.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                int selected = skillp2.getSelectedIndex();
+                p2cost.setText(String.valueOf(p2.getSkills()[selected].getStamina_cost()));
             }
         });
     }

@@ -35,6 +35,7 @@ public class Novice {
     private boolean blocked = false;
     private boolean dead = false;
     private boolean bluffed = false;
+    private boolean reflected = false;
     private String name;
     private Inventory inventory;
     private Skill[] skill_list;
@@ -132,10 +133,13 @@ public class Novice {
         this.bluffed = bluffed;
     }
 
+    public boolean isReflected() {
+        return reflected;
+    }
 
-    //    public void cast_block_skill(){
-//
-//    }
+    public void setReflected(boolean reflected) {
+        this.reflected = reflected;
+    }
 
     public int get_hp(){
         return hp;
