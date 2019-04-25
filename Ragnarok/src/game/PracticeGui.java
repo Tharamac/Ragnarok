@@ -43,6 +43,7 @@ public class PracticeGui{
     private int kill = 0;
     private int dead = 0;
     private int turn = 1;
+    private String[] monster_list;
     private double[] multiplier = new double[]{0.0,0.8,0.8,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.2,1.2,1.5,2.0};
     private double[] enemy_multiplier = new double[]{0.0,0.0,0.0,0.5,0.5,0.5,0.8,0.8,0.8,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.2,1.2,1.2,1.5,2.0};
 
@@ -76,11 +77,18 @@ public class PracticeGui{
         monslist.add(peeyabuddy);
         monslist.add(praiball);
         monslist.add(takksan);
+        monster_list = new String[monslist.size()];
+        for(int i = 0 ; i < monslist.size(); i++){
+            if(monslist.get(i) != null) {
+                monster_list[i] = monslist.get(i).getName();
+            }
+        }
         lblMonsname.setText(monslist.get(0).getName());
         lblMonsHp.setText(Integer.toString(monslist.get(0).getHp()));
         lblMonsAtk.setText(Integer.toString(monslist.get(0).getAtk()));
         lblMonsDef.setText(Integer.toString(monslist.get(0).getDef()));
         lblMonspos.setText(monslist.get(0).getPosition());
+        list1.setListData(monster_list);
 
 
 
