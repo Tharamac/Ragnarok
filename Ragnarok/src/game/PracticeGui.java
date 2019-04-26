@@ -266,9 +266,17 @@ public class PracticeGui{
                                 Practicelog.setText(
                                         Practicelog.getText() + "\n" + "Critical!"
                                 );
-                            }else if(multiply > 1){
+                            }else if(multiply > 1) {
                                 Practicelog.setText(
                                         Practicelog.getText() + "\n" + "Bonus Damage!"
+                                );
+                            }else if(multiply == 1) {
+                                Practicelog.setText(
+                                        Practicelog.getText() + "\n" + "Hit!"
+                                );
+                            }else if(multiply < 1){
+                                Practicelog.setText(
+                                        Practicelog.getText() + "\n" + "Weak!"
                                 );
                             }else if(multiply == 0){
                                 Practicelog.setText(
