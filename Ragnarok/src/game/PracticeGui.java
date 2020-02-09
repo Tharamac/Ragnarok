@@ -43,6 +43,7 @@ public class PracticeGui{
     private int kill = 0;
     private int dead = 0;
     private int turn = 1;
+    private String[] monster_list;
     private double[] multiplier = new double[]{0.0,0.8,0.8,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.2,1.2,1.5,2.0};
     private double[] enemy_multiplier = new double[]{0.0,0.0,0.0,0.5,0.5,0.5,0.8,0.8,0.8,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.2,1.2,1.2,1.5,2.0};
 
@@ -61,17 +62,33 @@ public class PracticeGui{
         Monster pruyut = new Monster("Pruyut",550,140,100);
         Monster prawit = new Monster("Prawish",675,160,120);
         Monster aprilat = new Monster("Aprilat", 420,180,100);
+        Monster peeyabuddy = new Monster("Peeyabuddy",470,150,55);
+        Monster praiball = new Monster("Praiball",510,110,70);
+        Monster sathep = new Monster("Sathep",680,150,120);
+        Monster takksan = new Monster("Takksan (Boss)", 1480,225,190);
+
         monslist.add(thanaton);
         monslist.add(sudarit);
         monslist.add(mingkhan);
         monslist.add(pruyut);
         monslist.add(prawit);
         monslist.add(aprilat);
+        monslist.add(sathep);
+        monslist.add(peeyabuddy);
+        monslist.add(praiball);
+        monslist.add(takksan);
+        monster_list = new String[monslist.size()];
+        for(int i = 0 ; i < monslist.size(); i++){
+            if(monslist.get(i) != null) {
+                monster_list[i] = monslist.get(i).getName();
+            }
+        }
         lblMonsname.setText(monslist.get(0).getName());
         lblMonsHp.setText(Integer.toString(monslist.get(0).getHp()));
         lblMonsAtk.setText(Integer.toString(monslist.get(0).getAtk()));
         lblMonsDef.setText(Integer.toString(monslist.get(0).getDef()));
         lblMonspos.setText(monslist.get(0).getPosition());
+        list1.setListData(monster_list);
 
 
 
@@ -127,7 +144,7 @@ public class PracticeGui{
                 Skill usethis = player.getSkills()[selected];
                 String opponent = (String) list1.getSelectedValue();
                 Monster enemy = new Monster("sa",55,5,5);
-                double multiply = getRandom(multiplier);
+                double multiply = getRandom(player.getDefense_probability());
                 for(Monster d : monslist) {
                     if (d.getName() != null && d.getName().contains(opponent)) {
                         enemy = d;
@@ -249,9 +266,17 @@ public class PracticeGui{
                                 Practicelog.setText(
                                         Practicelog.getText() + "\n" + "Critical!"
                                 );
-                            }else if(multiply > 1){
+                            }else if(multiply > 1) {
                                 Practicelog.setText(
                                         Practicelog.getText() + "\n" + "Bonus Damage!"
+                                );
+                            }else if(multiply == 1) {
+                                Practicelog.setText(
+                                        Practicelog.getText() + "\n" + "Hit!"
+                                );
+                            }else if(multiply < 1){
+                                Practicelog.setText(
+                                        Practicelog.getText() + "\n" + "Weak!"
                                 );
                             }else if(multiply == 0){
                                 Practicelog.setText(

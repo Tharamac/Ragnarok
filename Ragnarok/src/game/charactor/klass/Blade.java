@@ -13,8 +13,9 @@ public class Blade extends Novice{
                         new Skill("Piercing","damage",0,100,0,0),
                         new Skill("Cracker","damage",15,200,0,0),
                         new Skill("Sword Block", "block" , 40,0,0.75,0),
-                        new Skill("Sword Bluff","bluff",60,0,0,3)}
-                        );
+                        new Skill("Sword Bluff","bluff",60,0,0,3)},
+                new double[]{0.0,0.0,0.5,0.5,0.8,0.8,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.2,1.2,1.5,2.0}
+                );
     }
 
 
