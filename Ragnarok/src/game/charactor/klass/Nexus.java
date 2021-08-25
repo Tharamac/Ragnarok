@@ -14,7 +14,9 @@ public class Nexus extends Novice {
                         new Skill("Freezing","damage",30,70,0,0),
                         new Skill("Snowball","damage",30,150,0,0),
                         new Skill("Ice Wall", "block" , 80,0,0.5,0),
-                        new Skill("Blizzard","damage",300,350,0,0)}
+                        new Skill("Blizzard","damage",300,350,0,0)},
+                new double[]{0.0,0.8,0.8,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.2,1.2,1.5,2.0}
+
         );
     }
 
